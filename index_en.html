@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haeok Gim · Resume</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --teal-900:#0B3D38;
+    --teal-800:#0F5F58;
+    --teal-700:#0E7C72;
+    --mint-500:#14B8A6;
+    --mint-400:#2DD4BF;
+    --mint-100:#D9F7F0;
+    --mint-50:#ECFDF9;
+    --ink:#152521;
+    --muted:#5B6B69;
+    --line:#DCEDE9;
+    --paper:#FFFFFF;
+    --soft:#F6FBFA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,
+      "Segoe UI","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 500px at 80% -10%, #E8FBF6 0%, transparent 60%),
+      radial-gradient(900px 400px at -10% 10%, #EEFDF9 0%, transparent 55%),
+      #EFF6F4;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-0.01em;
+  }
+  .page{
+    max-width:1040px;
+    margin:32px auto;
+    background:var(--paper);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 24px 60px -24px rgba(11,61,56,.28), 0 2px 8px rgba(11,61,56,.06);
+  }
+
+  /* ── Header ── */
+  .hero{
+    position:relative;
+    padding:44px 48px 40px;
+    color:#EAFFFB;
+    background:linear-gradient(135deg,var(--teal-900) 0%, var(--teal-800) 45%, var(--teal-700) 100%);
+    overflow:hidden;
+  }
+  .hero::after{ /* connecting-the-dots motif */
+    content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:
+      radial-gradient(circle, rgba(45,212,191,.55) 1.6px, transparent 2px),
+      radial-gradient(circle, rgba(217,247,240,.20) 1.2px, transparent 1.6px);
+    background-size:34px 34px, 17px 17px;
+    background-position:0 0, 8px 8px;
+    -webkit-mask-image:linear-gradient(105deg, transparent 40%, #000 100%);
+    mask-image:linear-gradient(105deg, transparent 40%, #000 100%);
+  }
+  .hero-inner{position:relative;z-index:1;display:flex;justify-content:space-between;
+    align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .name-block{display:inline-flex;flex-direction:column;align-items:flex-start;}
+  .name-en{font-size:42px;font-weight:800;letter-spacing:.005em;line-height:1.02;color:#fff;}
+  .name-ko{font-size:15px;font-weight:600;color:var(--mint-100);margin-top:9px;
+    letter-spacing:.16em;padding-left:2px;white-space:nowrap;}
+  .headline{
+    margin-top:16px;font-size:15px;font-weight:600;color:#DFFFF8;
+    display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;
+  }
+  .headline .chip{
+    background:rgba(45,212,191,.14);border:1px solid rgba(45,212,191,.4);
+    padding:3px 11px;border-radius:999px;font-size:12.5px;font-weight:600;color:#C9FFF3;
+  }
+  .motto{
+    margin-top:14px;font-size:13px;color:var(--mint-100);font-style:italic;
+    display:flex;align-items:center;gap:9px;
+  }
+  .motto .dots{display:inline-flex;gap:5px;align-items:center;}
+  .motto .dots i{width:6px;height:6px;border-radius:50%;background:var(--mint-400);display:block;
+    box-shadow:0 0 0 3px rgba(45,212,191,.18);}
+  .motto .dots .link{width:16px;height:1.5px;background:linear-gradient(90deg,var(--mint-400),rgba(45,212,191,.3));}
+  .contact{
+    text-align:right;font-size:12.5px;color:#D6F5EE;line-height:1.85;min-width:210px;
+  }
+  .contact a{color:#EAFFFB;text-decoration:none;}
+  .contact .lbl{color:var(--mint-400);font-weight:700;margin-right:6px;font-size:11px;}
+
+  /* ── Body grid ── */
+  .body{display:grid;grid-template-columns:300px 1fr;}
+  aside{background:var(--soft);border-right:1px solid var(--line);padding:32px 26px 40px;}
+  main{padding:32px 40px 44px;}
+
+  .sec-title{
+    font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--teal-700);
+    text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:16px;
+  }
+  .sec-title::before{content:"";width:16px;height:3px;border-radius:2px;
+    background:linear-gradient(90deg,var(--mint-500),var(--mint-400));}
+  main .sec-title{font-size:13px;}
+  aside .block + .block{margin-top:30px;}
+
+  /* sidebar */
+  .pill-wrap{display:flex;flex-wrap:wrap;gap:7px;}
+  .pill{
+    background:var(--mint-50);border:1px solid var(--mint-100);color:var(--teal-800);
+    font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;
+  }
+  .pill.solid{background:var(--mint-500);color:#fff;border-color:var(--mint-500);}
+  .kv{font-size:12.5px;margin-bottom:11px;}
+  .kv .k{font-weight:700;color:var(--teal-800);font-size:11.5px;letter-spacing:.02em;}
+  .kv .v{color:var(--muted);}
+  .cert-item{font-size:12.5px;color:var(--ink);padding:8px 0;border-bottom:1px dashed var(--line);}
+  .cert-item:last-child{border-bottom:0;}
+  .cert-item .d{color:var(--mint-500);font-weight:700;font-size:11px;letter-spacing:.02em;}
+  .award{font-size:12.5px;color:var(--ink);padding-left:16px;position:relative;margin-bottom:9px;line-height:1.5;}
+  .award::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;
+    background:var(--mint-400);box-shadow:0 0 0 3px var(--mint-50);}
+  .award .yr{color:var(--muted);font-size:11px;}
+
+  /* summary lead */
+  .lead{
+    background:linear-gradient(180deg,var(--mint-50),#fff);
+    border:1px solid var(--mint-100);border-left:4px solid var(--mint-500);
+    border-radius:12px;padding:18px 20px;font-size:13.5px;color:#26403b;margin-bottom:8px;
+  }
+  .lead strong{color:var(--teal-800);font-weight:700;}
+  .strengths{margin-top:18px;display:grid;gap:9px;}
+  .strengths li{
+    list-style:none;font-size:13px;color:var(--ink);padding-left:22px;position:relative;line-height:1.55;
+  }
+  .strengths li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;border-radius:50%;
+    background:conic-gradient(from 90deg,var(--mint-500),var(--mint-400));box-shadow:0 0 0 3px var(--mint-50);}
+  .strengths li b{color:var(--teal-800);}
+
+  section.blk{margin-top:34px;}
+
+  /* career timeline */
+  .rail{position:relative;padding-left:26px;}
+  .rail::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--mint-400),var(--mint-100));}
+  .node{position:relative;padding-bottom:16px;}
+  .node::before{content:"";position:absolute;left:-26px;top:5px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--mint-500);box-shadow:0 0 0 4px var(--mint-50);}
+  .node .row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline;}
+  .node .co{font-weight:700;font-size:14px;color:var(--ink);}
+  .node .rank{font-size:11.5px;color:var(--teal-700);font-weight:700;background:var(--mint-50);
+    padding:1px 8px;border-radius:6px;margin-left:7px;border:1px solid var(--mint-100);}
+  .node .dur{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .node .role{font-size:12.5px;color:var(--muted);margin-top:1px;}
+
+  /* detailed cards */
+  .exp{
+    border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;
+    background:#fff;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .exp:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(14,124,114,.4);
+    border-color:var(--mint-100);}
+  .exp-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px;}
+  .exp-head .l .c{font-size:16px;font-weight:800;color:var(--teal-800);}
+  .exp-head .l .r{font-size:12.5px;color:var(--muted);margin-top:3px;font-weight:600;}
+  .exp-head .l .r em{color:var(--teal-700);font-style:normal;font-weight:700;}
+  .exp-head .dur{font-size:12px;color:#fff;background:var(--mint-500);padding:3px 11px;border-radius:999px;
+    font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .meta{font-size:11.5px;color:var(--muted);margin-bottom:11px;line-height:1.5;
+    background:var(--soft);padding:8px 12px;border-radius:8px;border:1px solid var(--line);}
+  .focus{font-size:12px;font-weight:700;color:var(--teal-800);margin-bottom:10px;
+    display:flex;gap:8px;align-items:flex-start;}
+  .focus::before{content:"▶";color:var(--mint-500);font-size:10px;line-height:1.6;flex-shrink:0;}
+  .exp ul{list-style:none;display:grid;gap:6px;}
+  .exp ul li{font-size:12.7px;color:#2a3a37;padding-left:16px;position:relative;line-height:1.55;}
+  .exp ul li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;
+    background:var(--mint-400);}
+  .exp ul li b{color:var(--teal-800);font-weight:700;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .tag{font-size:11px;color:var(--teal-700);background:var(--mint-50);border:1px solid var(--mint-100);
+    padding:3px 9px;border-radius:6px;font-weight:600;}
+
+  /* edu */
+  .edu-grid{display:grid;gap:10px;}
+  .edu-item{display:flex;justify-content:space-between;gap:12px;font-size:12.8px;
+    padding:11px 15px;background:#fff;border:1px solid var(--line);border-radius:10px;flex-wrap:wrap;}
+  .edu-item .t{font-weight:600;color:var(--ink);}
+  .edu-item .t b{color:var(--teal-800);}
+  .edu-item .y{color:var(--muted);font-size:11.5px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .edu-item.hi{background:var(--mint-50);border-color:var(--mint-100);}
+
+  footer{padding:20px 48px;text-align:center;font-size:11.5px;color:var(--muted);
+    border-top:1px solid var(--line);background:var(--soft);}
+  footer b{color:var(--teal-800);}
+
+  /* entrance */
+  @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .page{animation:rise .5s ease both;}
+
+  @media (max-width:820px){
+    .body{grid-template-columns:1fr;}
+    aside{border-right:0;border-bottom:1px solid var(--line);}
+    .hero{padding:34px 26px 30px;}
+    main{padding:26px 24px 34px;}
+    .name-en{font-size:34px;}
+    .contact{text-align:left;}
+  }
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none;margin:0;border-radius:0;max-width:100%;animation:none;}
+    .exp{break-inside:avoid;}
+    .exp:hover{transform:none;box-shadow:none;}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="name-block">
+          <div class="name-en">HAEOK&nbsp;GIM</div>
+          <div class="name-ko">김혜옥</div>
+        </div>
+        <div class="headline">
+          <span class="chip">Healthcare · Pharma · Cosmetics</span>
+          <span class="chip">Brand Strategy</span>
+          <span class="chip">Global BD</span>
+        </div>
+        <div class="motto">
+          <span class="dots"><i></i><span class="link"></span><i></i><span class="link"></span><i></i></span>
+          “Connecting the Dots” — bridging market, technology &amp; business
+        </div>
+      </div>
+      <div class="contact">
+        <div><span class="lbl">TEL</span><a href="tel:+821076770509">+82-10-7677-0509</a></div>
+        <div><span class="lbl">MAIL</span><a href="mailto:haeok.gim@gmail.com">haeok.gim@gmail.com</a></div>
+        <div><span class="lbl">BASE</span>Suwon, Gyeonggi-do, South Korea</div>
+        <div><span class="lbl">CAREER</span>23 yrs total / 19 in healthcare</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="block">
+        <div class="sec-title">AI &amp; Cloud</div>
+        <div class="pill-wrap" style="margin-bottom:12px;">
+          <span class="pill solid">AWS AI Practitioner</span>
+          <span class="pill">Amazon Bedrock</span>
+          <span class="pill">SageMaker</span>
+          <span class="pill">Generative AI</span>
+          <span class="pill">RAG · XAI</span>
+          <span class="pill">Bio-Health AI</span>
+        </div>
+        <div class="kv"><span class="k">Certification &nbsp;</span><span class="v">AWS Certified AI Practitioner (AIF-C01) · Feb 2026</span></div>
+        <div class="kv"><span class="k">AWS Academy &nbsp;</span><span class="v">Bio-Healthcare AI Academy — SKKU, 865h · Completed</span></div>
+        <div class="kv"><span class="k">Capstone &nbsp;</span><span class="v">AI Stroke Prediction Platform — PM &amp; Team Lead / AUC 0.9257</span></div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Core Competencies</div>
+        <div class="pill-wrap">
+          <span class="pill">Brand Strategy</span>
+          <span class="pill">Product Launch</span>
+          <span class="pill">IMC Planning</span>
+          <span class="pill">HCP / KOL Engagement</span>
+          <span class="pill">Medical Writing</span>
+          <span class="pill">Market Research</span>
+          <span class="pill">Global BD</span>
+          <span class="pill">Cross-functional Leadership</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Key Brands</div>
+        <div class="kv"><span class="k">BMS &nbsp;</span><span class="v">ELIQUIS · ORENCIA · Oncology BU</span></div>
+        <div class="kv"><span class="k">Novartis &nbsp;</span><span class="v">COSENTYX · BEOVU · MENVEO</span></div>
+        <div class="kv"><span class="k">Janssen &nbsp;</span><span class="v">VELCADE · Zytiga · Dacogen</span></div>
+        <div class="kv"><span class="k">Device / Others &nbsp;</span><span class="v">J&amp;J Medical (Ethicon) · Roche · Mundipharma · Allergan JUVEDERM</span></div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Languages &amp; Tools</div>
+        <div class="kv"><span class="k">English &nbsp;</span><span class="v">TOEIC 950 · Business Fluent (15+ yrs in global firms)</span></div>
+        <div class="kv"><span class="k">Korean &nbsp;</span><span class="v">Native</span></div>
+        <div class="kv"><span class="k">MS Office &nbsp;</span><span class="v">PowerPoint (Adv) · Word (Adv) · Excel (Int)</span></div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Awards &amp; Recognition</div>
+        <div class="award">WeberShandwick APAC Award <b>Silver</b> — ETC Campaign <span class="yr">(2020)</span></div>
+        <div class="award">PR Week Asia — ETC Category <b>Shortlisted</b> <span class="yr">(2021)</span></div>
+        <div class="award">GYNOBETADINE Rebranding — w/ Singapore Office <span class="yr">(2014)</span></div>
+        <div class="award">GYNOBETACARE Launch — w/ Singapore Office <span class="yr">(2016)</span></div>
+        <div class="award">Cannes Lions attendance — KOBACO top-graduate sponsorship <span class="yr">(2010)</span></div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Certifications</div>
+        <div class="cert-item"><span class="d">Feb 2026</span> · AWS Certified AI Practitioner (AIF-C01)</div>
+        <div class="cert-item"><span class="d">Feb 2026</span> · Hunet MBA (Mgmt Aptitude L2)</div>
+        <div class="cert-item"><span class="d">2009</span> · TOEIC 950</div>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Digital Marketing</div>
+        <div class="pill-wrap">
+          <span class="pill">Social Media Mktg (L1)</span>
+          <span class="pill">Search Advertising (L1)</span>
+          <span class="pill">Digital Marketing Expert</span>
+          <span class="pill">Marketing Planning Expert</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <!-- SUMMARY -->
+      <div class="sec-title">Professional Summary</div>
+      <div class="lead">
+        <strong>Healthcare brand strategy &amp; marketing-communications leader</strong> with
+        <strong>18+ years</strong> across pharmaceutical, medical &amp; surgical device, cosmetic, OTC and ETC categories.
+        Experienced on <strong>both the agency and pharma/healthcare in-house sides</strong>, with a distinctive strength in
+        <strong>“connecting”</strong> — turning complex clinical data into messages HCPs and patients relate to,
+        and re-designing global strategy for the Korean market.
+      </div>
+      <ul class="strengths">
+        <li><b>Global BD execution</b> — Kangstem Biotech, GM of Global BD: NDA execution, global partner networking across CRO / biotech / pharma, pipeline Go-to-Market strategy</li>
+        <li><b>Team leadership (since 2014)</b> — led a 9-person IPG Group healthcare team: P&amp;L, hiring, member development</li>
+        <li><b>15+ years of global collaboration</b> — with global firms since 2007, leading cross-agency projects with APAC/Global offices (English business fluency)</li>
+        <li><b>AI &amp; Cloud fluency</b> — AWS AI Practitioner certification and Bio-Healthcare AI Academy, building dual “domain + cloud” fluency</li>
+      </ul>
+
+      <!-- CAREER SUMMARY -->
+      <section class="blk">
+        <div class="sec-title">Career Summary</div>
+        <div class="rail">
+          <div class="node"><div class="row"><div class="co">Kangstem Biotech<span class="rank">GM</span></div><div class="dur">2025.06 – 2025.09</div></div><div class="role">Global Business Development &amp; Licensing</div></div>
+          <div class="node"><div class="row"><div class="co">Dx&amp;Vx<span class="rank">GM</span></div><div class="dur">2023.12 – 2024.10</div></div><div class="role">Brand Marketing · Marketing Strategy HQ</div></div>
+          <div class="node"><div class="row"><div class="co">Causeworks<span class="rank">Director</span></div><div class="dur">2023.08 – 2023.11</div></div><div class="role">Business Development (ESG · Healthcare)</div></div>
+          <div class="node"><div class="row"><div class="co">Weber Shandwick Korea<span class="rank">Director · Lead</span></div><div class="dur">2018.01 – 2022.04</div></div><div class="role">Healthcare Division (IPG Group)</div></div>
+          <div class="node"><div class="row"><div class="co">McCann Erickson · McCann Health Korea<span class="rank">GM · Lead</span></div><div class="dur">2012.01 – 2018.01</div></div><div class="role">Humancare Division (IPG Group)</div></div>
+          <div class="node"><div class="row"><div class="co">Havas Korea<span class="rank">Deputy GM</span></div><div class="dur">2008.04 – 2011.12</div></div><div class="role">Healthcare Division</div></div>
+          <div class="node"><div class="row"><div class="co">Ipsos Korea<span class="rank">Sr. Researcher</span></div><div class="dur">2007.01 – 2007.12</div></div><div class="role">Healthcare Division</div></div>
+          <div class="node"><div class="row"><div class="co">IMED Korea<span class="rank">Asst. Manager</span></div><div class="dur">2005.07 – 2007.01</div></div><div class="role">Scientific Affairs Team</div></div>
+        </div>
+      </section>
+
+      <!-- DETAILED EXPERIENCE -->
+      <section class="blk">
+        <div class="sec-title">Professional Experience</div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Kangstem Biotech</div>
+              <div class="r"><em>General Manager, Global Business Development &amp; Licensing</em> · Seoul HQ</div></div>
+            <div class="dur">2025.06 – 2025.09</div>
+          </div>
+          <div class="meta">Stem-cell biotech (KOSDAQ-listed) · cord-blood-derived stem-cell therapeutics · Rev. ~KRW 7.6B (2024) · ~108 employees</div>
+          <div class="focus">Life-science partnership building &amp; global BD execution</div>
+          <ul>
+            <li>Conducted market &amp; trend analysis on global/domestic biotech → CEO reporting and <b>strategic pipeline selection</b></li>
+            <li>Led <b>NDA execution</b> with prospective partners; safeguarded confidential technology</li>
+            <li>Global KOL networking via LinkedIn across CRO, cosmetics, biotech, healthcare and pharma</li>
+            <li>Built <b>pipeline Go-to-Market strategy</b> based on overseas market &amp; competitor analysis</li>
+            <li>Led cross-functional communication: R&amp;D / Clinical / Legal / Regulatory Affairs</li>
+          </ul>
+          <div class="tags"><span class="tag">Global BD</span><span class="tag">NDA · Licensing</span><span class="tag">Go-to-Market</span><span class="tag">KOL Networking</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Dx&amp;Vx (Diagnostic &amp; Vaccine Science)</div>
+              <div class="r"><em>General Manager (Brand Marketing), Marketing Strategy HQ</em> · Seoul HQ</div></div>
+            <div class="dur">2023.12 – 2024.10</div>
+          </div>
+          <div class="meta">Biopharma · vaccine · molecular-diagnostics · microbiome healthcare-solutions company (KOSDAQ) · Rev. KRW 46.7B (2023, consolidated) · ~71 employees</div>
+          <div class="focus">Consumer-health brand strategy grounded in pharma experience &amp; customer unmet needs</div>
+          <ul>
+            <li><b>KOL Engagement Strategy &amp; Planning</b> Director</li>
+            <li>Market &amp; trend research for new-business opportunities (global pharma), reporting to the CEO</li>
+            <li><b>Health Functional Food brand strategy</b> for infant probiotics / microbiome family brand (IMC approach)</li>
+            <li>Microbiome-based <b>RTM (Route-to-Market) planning &amp; execution</b> — direction, HCP recruitment, content development</li>
+            <li>Italian-office liaison — interpretation/translation for overseas buyer meetings</li>
+          </ul>
+          <div class="tags"><span class="tag">Brand Strategy</span><span class="tag">HCP/KOL Engagement</span><span class="tag">IMC</span><span class="tag">RTM</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Causeworks</div>
+              <div class="r"><em>Director — Business Development &amp; ESG Marketing</em> · Seoul</div></div>
+            <div class="dur">2023.08 – 2023.11</div>
+          </div>
+          <div class="meta">Korean CSR·ESG agency · clients incl. LG, GS Caltex, Hyundai Motor, E-mart, KT · Rev. ~KRW 4.5B (2023)</div>
+          <ul>
+            <li>Director for BD, ESG marketing and healthcare — set new-proposal direction and program guidance</li>
+            <li>Key proposals: Samsung Life campaign ideation / GS Caltex ‘Earth Talk’ Phase 2 / Korea Federation of Banks ‘Bankit’ / Hyundai EV-charging barrier-free social campaign / Naver Happybean</li>
+            <li>Introduced a creative QC system — proposed and rolled out a check tool</li>
+          </ul>
+          <div class="tags"><span class="tag">ESG · CSR</span><span class="tag">New Business</span><span class="tag">Creative QC</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Weber Shandwick Korea</div>
+              <div class="r"><em>Account Director / Team Lead — Healthcare Division</em> · IPG Group</div></div>
+            <div class="dur">2018.01 – 2022.04</div>
+          </div>
+          <div class="meta">Global PR &amp; communications agency under IPG Group · Rev. KRW 12.8B (2021) · ~70 employees</div>
+          <div class="focus">Multi-therapeutic healthcare BD &amp; strategy; APAC award record</div>
+          <ul>
+            <li><b>WeberShandwick APAC Award Silver</b> (ETC campaign, 2020) / PR Week Asia Shortlisted (2021)</li>
+            <li>BMS <b>ELIQUIS</b> HCP/Patient annual campaign lead (2018–2022) — anticoagulant market-leading brand strategy</li>
+            <li>BMS ORENCIA HCP annual campaign (2018–2022) / Oncology BU communications (2020)</li>
+            <li>Novartis <b>COSENTYX</b> (PsO/AS/PsA) HCP &amp; Patient annual campaigns lead (2019–2022)</li>
+            <li>Novartis BEOVU HCP &amp; Patient annual campaign (2020–2022) — ophthalmology new-drug launch</li>
+            <li>Therapeutic areas: hematology, oncology, immunology, cardiovascular, respiratory, ophthalmology, CNS / AR·VR digital projects</li>
+          </ul>
+          <div class="tags"><span class="tag">Account Director</span><span class="tag">IMC Strategy</span><span class="tag">Medical Writing</span><span class="tag">Digital · AR/VR</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">McCann Erickson · McCann Health Korea</div>
+              <div class="r"><em>General Manager / Team Lead — Humancare Division</em> · IPG Group</div></div>
+            <div class="dur">2012.01 – 2018.01</div>
+          </div>
+          <div class="meta">Global full-service advertising agency under IPG Group · 9-person team lead &nbsp;|&nbsp; Note: moved to Weber Shandwick following the Nov 2017 McCann Health merger</div>
+          <div class="focus">Winning new global-pharma BD and driving team revenue growth</div>
+          <ul>
+            <li>Grew team retainer base from <b>Zero → 4 global pharma accounts (Pfizer · AstraZeneca · Janssen · BMS) within the first year</b></li>
+            <li>Scaled from a single brand → <b>5+ concurrent brands</b>, driving <b>team annual billing to KRW 3B → 10B</b></li>
+            <li>9-person team lead: targets, hiring, member development; briefed global leadership on APAC/global visits (2014–2022)</li>
+            <li>Led monthly Creative Effectiveness Sessions with regional/global creative directors (2014–2015)</li>
+            <li>APAC/Global office collaboration — led Singapore joint projects / cross-agency ATL·BTL (UM · WS · Commonwealth)</li>
+            <li>J&amp;J Medical (Ethicon) brand identity · suture/Dermabond/trocar (2013) / Allergan JUVEDERM (2012–2013)</li>
+            <li>Mundipharma GYNOBETADINE rebranding (2013–2014, with Singapore) / Janssen VELCADE · Zytiga · Dacogen branding</li>
+          </ul>
+          <div class="tags"><span class="tag">4 New Accounts</span><span class="tag">Team Lead (9)</span><span class="tag">Medical Device</span><span class="tag">Ad Review</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Havas Korea (prev. Euro RSCG)</div>
+              <div class="r"><em>Account Manager / Medical Writer — Healthcare Division</em> · Havas Group</div></div>
+            <div class="dur">2008.04 – 2011.12</div>
+          </div>
+          <div class="meta">Global advertising agency under Havas Group</div>
+          <ul>
+            <li><b>Annual brand-strategy proposals &amp; execution</b> for retainer clients — SANOFI (diabetes/anticoagulant), Novartis (smoking cessation), Oxy Reckitt Benckiser (GERD/sore throat)</li>
+            <li>Communication planning &amp; congress meetings for HCPs / patients / MRs</li>
+            <li>Symposium slide development (storyflow · data · creative) and medical content / OTC TV·radio·print campaigns</li>
+            <li>Attended the 57th Cannes Lions International Advertising Festival (Jun 2010) — fully sponsored as a top KOBACO graduate</li>
+          </ul>
+          <div class="tags"><span class="tag">Retainer Management</span><span class="tag">Symposium</span><span class="tag">OTC Campaigns</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">Ipsos Korea (prev. Synovate)</div>
+              <div class="r"><em>Market Researcher — Healthcare Division</em> · Seoul</div></div>
+            <div class="dur">2007.01 – 2007.12</div>
+          </div>
+          <div class="meta">Korea office of the global market-research firm Ipsos</div>
+          <ul>
+            <li>Qualitative &amp; quantitative research for global pharma (Abbott, AstraZeneca, Novartis, Merck Serono, Wyeth, Pfizer)</li>
+            <li>Built knowledge across disease areas (RA, asthma, uterine myoma, MS, obesity, antibiotics, hypertension)</li>
+            <li>Joint research projects with Synovate Healthcare London &amp; USA offices</li>
+          </ul>
+          <div class="tags"><span class="tag">Market Research</span><span class="tag">Qual · Quant</span><span class="tag">Global Collaboration</span></div>
+        </div>
+
+        <div class="exp">
+          <div class="exp-head">
+            <div class="l"><div class="c">IMED Korea</div>
+              <div class="r"><em>Scientific Affairs Editor (Assistant Manager)</em> · Seoul</div></div>
+            <div class="dur">2005.07 – 2007.01</div>
+          </div>
+          <div class="meta">Medical-journal publishing &amp; advertising specialist</div>
+          <ul>
+            <li>Circulation Korean Ed. (AHA) · European Heart Journal Korean Ed. (ESC) — article selection, translation, editing, design supervision</li>
+            <li>Medical book reviews (cardiology, endocrinology, neurology) and planning</li>
+            <li>Key clients: Pfizer, Sanofi-Aventis, GSK, LG Life Science, Novartis, Merck / liaison with Oxford Journals (UK)</li>
+          </ul>
+          <div class="tags"><span class="tag">Medical Editing</span><span class="tag">Academic Translation</span></div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="blk">
+        <div class="sec-title">Education &amp; Training</div>
+        <div class="edu-grid">
+          <div class="edu-item hi"><div class="t"><b>AWS Certified AI Practitioner (AIF-C01)</b> — Amazon Web Services · Valid Feb 2026 – Feb 2029</div><div class="y">Feb 15, 2026</div></div>
+          <div class="edu-item hi"><div class="t"><b>AWS Bio-Healthcare AI Academy</b> — SKKU Advanced AI Training (865h) · Completed</div><div class="y">2025.12 – 2026.05</div></div>
+          <div class="edu-item hi"><div class="t"><b>Capstone Project</b> — AI Stroke Prediction Platform (PM &amp; Team Lead; AWS Serverless / Bedrock RAG · DDI · SHAP XAI; AUC 0.9257)</div><div class="y">2025.12 – 2026.05</div></div>
+          <div class="edu-item"><div class="t">Hunet MBA — Strategic Management · Organizational Behavior · General Management (Mgmt Aptitude L2)</div><div class="y">2025.10 – 2026.02</div></div>
+          <div class="edu-item"><div class="t">Global BD Core Competencies Program — Korea Pharmaceutical &amp; Bio-Pharma Association</div><div class="y">2025.09</div></div>
+          <div class="edu-item"><div class="t">Bio-pharmaceutical Regulatory Affairs Training — Korea Biotech Association</div><div class="y">2025.07</div></div>
+          <div class="edu-item"><div class="t">No-code Bio-Health Generative AI Data Analysis — KOHI</div><div class="y">2025.03</div></div>
+          <div class="edu-item"><div class="t">HYPERISLAND Masterclass — Singapore (IPG Group)</div><div class="y">2015.09</div></div>
+          <div class="edu-item"><div class="t">Brand Manager School — Yonsei University (19th class)</div><div class="y">2011</div></div>
+          <div class="edu-item"><div class="t">Advertising Planning / Brand Strategy (top graduate) — KOBACO AD Academy</div><div class="y">2009 – 2010</div></div>
+          <div class="edu-item"><div class="t">Strathfield Community College (English Course) — Sydney, Australia</div><div class="y">2001 – 2002</div></div>
+          <div class="edu-item"><div class="t"><b>Sungkyunkwan University</b> — B.Eng., Bio-Mechatronics Engineering (GPA 3.5/4.5)</div><div class="y">1995 – 2000</div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <b>Haeok Gim</b> &nbsp;·&nbsp; Healthcare · Pharma · Cosmetics Brand Strategy &amp; Global BD &nbsp;·&nbsp; haeok.gim@gmail.com &nbsp;·&nbsp; +82-10-7677-0509
+  </footer>
+</div>
+</body>
+</html>
